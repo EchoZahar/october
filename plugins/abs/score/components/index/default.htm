@@ -1,0 +1,15 @@
+{% if this.page.id == 'index' %}
+    {% partial 'site/header_slider' slider=slider %}
+{% elseif this.page.id == 'category' %}
+    {% partial 'site/header' name=category %}
+    <main>
+        {% partial __SELF__~"::category_with_products" %}
+        {% partial 'site/footer' %}
+    </main>
+{% elseif this.page.id == 'product' %}
+    {% partial 'site/item_header' name=product %}
+    <main>
+        {% partial __SELF__~"::product" %}
+        {% partial 'site/footer' %}
+    </main>
+{% endif %}

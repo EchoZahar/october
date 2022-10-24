@@ -1,0 +1,51 @@
+<section class="case-details">
+    <div class="case-navbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 wow fadeInUp" id="">
+                    <h3>{{ product.name }}</h3>
+                    <h6>цена: {{ product.price }}</h6>
+                </div>
+                {% for image in product.product_images %}
+                <div class="col-md-4 wow fadeInUp">
+                    <figure>
+                        <img src="{{ image.path }}" alt="Image">
+                    </figure>
+                </div>
+                {% endfor %}
+                <div class="col-md-12">
+                    {{ product.description | raw }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% if similarProducts.count > 0 %}
+<section class="introduction">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Похожие записи</h2>
+                <h6>На данныей момент похожие записи только по загаловку.</h6>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="works">
+    <ul>
+        {% for similar in similarProducts %}
+        <li class="wow fadeInUp">
+            <figure data-tilt>
+                <img src="{{ similar.product_images.first.path }}" alt="Image" class="thumb">
+                <figcaption>
+                    <img src="{{ 'assets/images/logo-brand.png' }}" alt="Image" class="brand">
+                    <h3>{{ similar.name }}</h3>
+                    <small>{{ similar.price }}</small>
+                    <a href="/{{ category.slug }}/{{ product.slug }} }}">перейти</a>
+                </figcaption>
+            </figure>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}

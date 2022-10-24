@@ -1,0 +1,11 @@
+1.0.1: First version of Score
+1.0.2:
+    - 'Добавлен раздел категории.'
+    - create_categories_table.php
+1.0.3:
+    - 'Добавил раздел с товароми.'
+    - create_products_table.php
+1.0.4:
+    - 'Добавил таблицу связи категории с продуктом (отношение многие ко многим)'
+    - create_category_product_table.php
+

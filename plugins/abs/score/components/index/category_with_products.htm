@@ -1,0 +1,55 @@
+<section class="works four-cols">
+<!--    <div class="container">-->
+<!--        <div class="filter-bar">-->
+<!--            <div class="filter-btn">-->
+<!--                <div class="dots-menu">-->
+<!--                    <div class="pix"></div>-->
+<!--                    <div class="pix"></div>-->
+<!--                    <div class="pix"></div>-->
+<!--                    <div class="pix"></div>-->
+<!--                    <div class="pix"></div>-->
+<!--                    <div class="pix"></div>-->
+<!--                    <div class="pix"></div>-->
+<!--                    <div class="pix"></div>-->
+<!--                    <div class="pix"></div>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; end dots-menu &ndash;&gt;-->
+<!--                <span>ФИЛЬТР</span>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; end filter-btn &ndash;&gt;-->
+<!--            <ol class="works-filter">-->
+<!--                <li><a href="javascript:void(0);" data-filter="*" class="current">ALL</a></li>-->
+<!--                <li><a href="javascript:void(0);" data-filter=".one">UI-UX DESIGN</a></li>-->
+<!--                <li><a href="javascript:void(0);" data-filter=".two">DEVELOPMENT</a></li>-->
+<!--                <li><a href="javascript:void(0);" data-filter=".three">WORDPRESS</a></li>-->
+<!--                <li><a href="javascript:void(0);" data-filter=".four">PRINT</a></li>-->
+<!--                <li><a href="javascript:void(0);" data-filter=".five">MOBILE APP</a></li>-->
+<!--            </ol>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; end filter-bar &ndash;&gt;-->
+<!--    </div>-->
+    <!-- end container -->
+    {% if products.count > 0 %}
+    <ul>
+        {% for product in products %}
+        <li class="wow fadeInUp one">
+            <figure data-tilt>
+                <img src="{{ product.product_images.first.path }}" alt="Image" class="thumb">
+                <figcaption>
+                    <img src="{{ 'assets/images/logo-brand2.png' | theme }}" alt="Image" class="brand">
+                    <h3>{{ product.name }}</h3>
+                    <small>{{ product.price }}</small> <a href="/{{ category.slug }}/{{ product.slug }}">показать продукт</a>
+                </figcaption>
+            </figure>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <p>Продуктов не найдено</p>
+        </div>
+    </div>
+
+    {% endif %}
+</section>

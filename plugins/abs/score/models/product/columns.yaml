@@ -1,0 +1,29 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    product_images:
+        label: 'превью товара'
+        type: image
+    name:
+        label: 'наименование продукта'
+        searcheable: true
+        sortable: false
+    price:
+        label: 'цена товара'
+        searcheable: true
+        sortable: true
+    is_published:
+        label: 'публикация'
+        type: switch
+        sortable: true
+    created_at:
+        label: 'дата создания'
+        type: datetime
+        sortable: false
+
+

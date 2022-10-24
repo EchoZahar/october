@@ -1,0 +1,26 @@
+# scopes.yaml
+scopes:
+    category:
+        label: 'фильтр по категории'
+        modelClass: Abs\Score\Models\Category
+        nameFrom: name
+        scope: filterCategories
+
+    created_at:
+        label: 'фильтроват по дате'
+        type: date
+        conditions:
+            after: created_at >= ':value'
+            between: created_at >= ':after' AND created_at <= ':before'
+
+    published:
+        label: 'фильтр по публикаций'
+#        type: checkbox
+#        default: 0
+#        conditions: is_published <> true
+        type: switch
+        default: 2
+        conditions:
+            - is_published <> true
+            - is_published = true
+

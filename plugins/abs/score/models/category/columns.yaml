@@ -1,0 +1,32 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: false
+        sortable: true
+    preview:
+        label: 'превью категории'
+        type: image
+        width: '150px'
+    name:
+        label: 'наименование категории'
+
+    is_published:
+        label: 'публикация'
+        type: switch
+        sortable: true
+
+    products_count:
+        label: 'кол-во продуктов в категории'
+        relation: products
+        relationCount: true
+        type: number
+
+    created_at:
+        label: 'дата'
+        type: datetime
+        format: d.m.Y H:i
+

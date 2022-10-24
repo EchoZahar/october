@@ -1,0 +1,22 @@
+<header class="page-header">
+    <div class="video-bg">
+        <video src="{{ name.preview.path }}" autoplay muted loop></video>
+<!--        <video src="{{ 'assets/videos/video.mp4' | theme }}" autoplay muted loop></video>-->
+    </div>
+    <!-- end video-bg -->
+    <div class="inner">
+        <h2 data-text="{{ name.name }}">{{ name.name }}</h2>
+        {{ name.description | slice(0, 100) | raw  }}
+    </div>
+    <!-- end inner -->
+    <ul class="social-media">
+        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+        <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+    </ul>
+    <div class="scroll-down"><b>прокрутка</b><span></span></div>
+    <!-- end scroll-down -->
+</header>
+<div class="page-header-spacing"></div>

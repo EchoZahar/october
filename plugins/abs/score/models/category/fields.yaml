@@ -1,0 +1,40 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    is_published:
+        label: 'публикация'
+        span: left
+        type: switch
+    parent:
+        label: 'Категория'
+        type: relation
+        nameForm: name
+        span: right
+        emptyOption: '- выбрать категорию -'
+    name:
+        label: Наименование категории
+        type: text
+        span: left
+    slug:
+        label: 'url категории'
+        type: text
+        span: auto
+        preset: name
+    description:
+        label: 'описание категории'
+        size: large
+        span: full
+        type: richeditor
+        comment: 'Можете оставить пустым данное поле, если оно не несет смысловой нагрузки'
+    preview:
+        label: 'изображение категории'
+        comment: 'не обязятельное поле'
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: left
+        type: fileupload

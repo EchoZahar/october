@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Product
+
+# Model Form Field configuration
+form: $/abs/score/models/product/fields.yaml
+
+# Model Class name
+modelClass: Abs\Score\Models\Product
+
+# Default redirect location
+defaultRedirect: abs/score/products
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: abs/score/products/update/:id
+    redirectClose: abs/score/products
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: abs/score/products
+    redirectClose: abs/score/products
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

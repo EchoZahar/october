@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#33a16e"/>
+    <title>{{ this.page.meta_title ?: placeholder('pageTitle') }} ABSELGROUP</title>
+
+    <meta name="author" content="Absel group">
+    <meta name="description" content="{{ this.page.meta_description }}">
+    <meta name="title" content="{{ this.page.meta_title }}">
+    <meta name="keywords" content="">
+
+    <!-- FAVICON FILES -->
+    <link href="{{ 'assets/ico/apple-touch-icon-144-precomposed.png' | theme }}" rel="apple-touch-icon" sizes="144x144">
+    <link href="{{ 'assets/ico/apple-touch-icon-114-precomposed.png' | theme }}" rel="apple-touch-icon" sizes="114x114">
+    <link href="{{ 'assets/ico/apple-touch-icon-72-precomposed.png' | theme }}" rel="apple-touch-icon" sizes="72x72">
+    <link href="{{ 'assets/ico/apple-touch-icon-57-precomposed.png' | theme }}" rel="apple-touch-icon">
+    <link href="{{ 'assets/ico/favicon.png' | theme }}" rel="shortcut icon">
+
+    <!-- CSS FILES -->
+    <link rel="stylesheet" href="{{ 'assets/css/font-awesome.min.css' | theme }}">
+    <link rel="stylesheet" href="{{ 'assets/css/animate.min.css' | theme }}">
+    <link rel="stylesheet" href="{{ 'assets/css/swiper.min.css' | theme }}">
+    <link rel="stylesheet" href="{{ 'assets/css/bootstrap.min.css' | theme }}">
+    <link rel="stylesheet" href="{{ 'assets/css/style.css' | theme }}">
+    {% styles %}
+</head>
+<body>
+{% partial 'site/preloader' %}
+{% partial 'site/transition-overlay' %}
+{% partial 'site/navigation' %}
+{% partial 'site/navbar' %}
+
+{% page %}
+
+
+<!-- End content -->
+<!-- end main -->
+<audio id="link" src="{{ 'assets/audio/link.mp3' | theme }}" preload="auto"></audio>
+<audio id="hover-audio" src="{{ 'assets/audio/hover.mp3' | theme }}" preload="auto"></audio>
+
+
+<!-- JS FILES -->
+<script src="{{ 'assets/js/jquery.min.js' | theme }}"></script>
+<script src="{{ 'assets/js/popper.min.js' | theme }}"></script>
+<script src="{{ 'assets/js/bootstrap.min.js' | theme }}"></script>
+<script src="{{ 'assets/js/swiper.min.js' | theme }}"></script>
+<script src="{{ 'assets/js/wow.min.js' | theme }}"></script>
+<script src="{{ 'assets/js/isotope.min.js' | theme }}"></script>
+<script src="{{ 'assets/js/tilt.jquery.js' | theme }}"></script>
+<script src="{{ 'assets/js/jquery.typewriter.js' | theme }}"></script>
+<script src="{{ 'assets/js/TweenMax.min.js' | theme }}"></script>
+<script src="{{ 'assets/js/imagesloaded.pkgd.min.js' | theme }}"></script>
+<script src="{{ 'assets/js/particles.min.js' | theme }}"></script>
+<script src="{{ 'assets/js/jquery.parallax.min.js' | theme }}"></script>
+<script src="{{ 'assets/js/motion.blur.js' | theme }}"></script>
+<script src="{{ 'assets/js/scripts.js' | theme }}"></script>
+
+{% framework extras turbo %}
+{% scripts %}
+</body>
+</html>

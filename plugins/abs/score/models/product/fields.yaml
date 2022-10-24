@@ -1,0 +1,53 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    is_published:
+        label: 'публикация'
+        span: left
+        type: switch
+    categories:
+        label: 'категория продукта'
+        span: right
+        type: relation
+        nameForm: name
+    price:
+        label: 'цена на продукт'
+        span: auto
+        type: number
+        mode: amountcurrency
+        placeholder: 'установить значение 0.00'
+        validation: 'required|numeric|between:0,99.99'
+    name:
+        label: 'наименование товара'
+        type: text
+        span: left
+        comment: 'поле обязательно для заполнения'
+        validation: "required|min:15"
+    slug:
+        label: 'url товара'
+        type: text
+        span: right
+        preset: name
+        comment: 'обязательно для заполнения не может быть пустым'
+    description:
+        label: 'описание продукта'
+        size: large
+        span: full
+        type: richeditor
+        comment: 'Можете оставить пустым данное поле, если оно не несет смысловой нагрузки'
+    product_images:
+        label: 'загрузить изображения продукта'
+        mode: image
+        useCaption: 0
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full
+        type: fileupload
+        imageHeight: '1080'
+        imageWidth: '1920'
+        mimeTypes: jpg,jpeg,png
+        deferredBinding: true
+
