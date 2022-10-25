@@ -1,7 +1,11 @@
 <?php namespace Abs\Score;
 
 use Abs\Score\Components\Index;
+use Abs\Score\Models\AdminNote;
+use Abs\Score\ReportWidgets\CountCategories;
+use Abs\Score\ReportWidgets\NotesDashboard;
 use Backend;
+use Backend\Models\User as BackUser;
 use System\Classes\PluginBase;
 
 /**
@@ -19,8 +23,8 @@ class Plugin extends PluginBase
         return [
             'name'        => 'Score',
             'description' => 'No description provided yet...',
-            'author'      => 'Abs',
-            'icon'        => 'icon-leaf'
+            'author'      => 'Ovechkin Zakhar',
+            'icon'        => 'icon-pencil'
         ];
     }
 
@@ -41,14 +45,16 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
-
+        // Проверить расширяемость Eloquent, идея получать notes при каздом запросе.
+        BackUser::extend(function ($model) {
+            $model->hasMany['notes'] = [AdminNote::class];
+        });
     }
 
     public function registerComponents()
     {
         return [
             Index::class => 'score',
-
         ];
     }
 
@@ -84,9 +90,19 @@ class Plugin extends PluginBase
                         'icon' => 'icon-copy',
                         'url' => Backend::url('abs/score/products'),
                         'permissions' => ['abs.score.*'],
-                    ]
+                    ],
                 ],
             ]
+        ];
+    }
+
+    public function registerReportWidgets()
+    {
+        return [
+            CountCategories::class => [
+                'label' => 'кол-во категорий',
+                'context' => 'dashboard',
+            ],
         ];
     }
 }
