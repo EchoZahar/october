@@ -15,7 +15,8 @@ class Note extends Model
     protected $fillable = [];
 
     public $rules = [
-        'title' => ['required', 'min:4']
+        'title' => ['required', 'min:4', 'string'],
+        'description' => ['nullable', 'string', 'max:520'],
     ];
 
     protected $dates = [
