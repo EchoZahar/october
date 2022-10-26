@@ -6,7 +6,20 @@
             <?php if($notes->count() > 0): ?>
             <?php foreach( $notes as $note ): ?>
                 <li class="list-group-item">
-                    <?= $note->title . ' ' . substr($note->description, 0, 15) ?>
+                    <form>
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <a class="text-primary" href="<?= Backend::url('abs/todo/notes/update/' . $note->id) ?>"><?= $note->title; ?></a>
+                            <?= $note->description ?>
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="hidden" name="noteID" value="<?= $note->id ?>">
+                            <button  class="oc-icon-trash-o btn-icon danger pull-right" type="submit"
+                                     data-request="<?= $this->getEventHandler('onDelete') ?>"
+                            ></button>
+                        </div>
+                        </form>
+                    </div>
                 </li>
             <?php endforeach ?>
             <?php else: ?>
@@ -27,13 +40,14 @@
     </div>
 
     <div class="form-group">
-        <textarea class="form-control" name="description" id="" cols="30" rows="10" placeholder="какая то дополнительная информация."></textarea>
+        <textarea class="form-control" name="description" id="" rows="3" placeholder="какая то дополнительная информация."></textarea>
     </div>
 
-    <div class="form-group">
-        <input type="submit" class="btn btn-primary" value="Submit" />
-        <a href="<?= Backend::url('admin/abs/todo/notes') ?>">к заметкам</a>
+    <div class="form-group text-end">
+        <a href="<?= Backend::url('abs/todo/notes') ?>">на странице к заметкам</a>
+        <input type="submit" class="btn btn-primary" value="добавить" />
     </div>
 
     <?= Form::close(); ?>
 </div>
+

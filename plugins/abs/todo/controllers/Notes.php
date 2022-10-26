@@ -46,32 +46,19 @@ class Notes extends Controller
         $note->user_id = BackendAuth::getUser()->id;
 
         if ($note->save()) {
-            Flash::success('Note added successfully.');
+            Flash::success('заметка: "' . $note->title . '" успешно добавлена !');
         } else {
             $messages = array_flatten($note->errors()->getMessages());
             $errors = implode('-', $messages);
-            Flash::error('Validation error: ' . $errors);
+            Flash::error('Ошибка валидаций: ' . $errors);
         }
 
-        return Redirect::to(Backend::url('abs/todo/notes'));
+        return Redirect::to(Backend::url('backend'));
     }
 
     public function update($recordId, $context = null)
     {
         return $this->asExtension('FormController')->update($recordId, $context);
-    }
-
-
-    public function onDelete()
-    {
-        $user_id = BackendAuth::getUser()->id;
-        $notes = post("notes");
-
-        Note::whereIn('id', $notes)->where('user_id', '=', $user_id)->delete();
-
-        Flash::success('Notes Successfully deleted.');
-
-        return $this->listRefresh();
     }
 
     public function formBeforeSave($model)
@@ -87,7 +74,7 @@ class Notes extends Controller
 
     public function listOverrideColumnValue($record, $columnName)
     {
-        if ($columnName == "description" && empty($record->description)) return "[EMPTY]";
+        if ($columnName == "description" && empty($record->description)) return "";
     }
 
     /**
@@ -98,7 +85,7 @@ class Notes extends Controller
     {
         $list->addColumns([
             'action' => [
-                'label' => 'Actions',
+                'label' => 'прочитано',
                 'sortable' => false
             ]
         ]);

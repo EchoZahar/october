@@ -53,7 +53,10 @@ class Plugin extends PluginBase
         return [
             QuickNoteWidget::class => [
                 'label'     => 'Быстрые заметки',
-                'context'   => 'dashboard'
+                'context'   => 'dashboard',
+                'permissions' => [
+                    'abs.todo.notes',
+                ],
             ],
         ];
     }
