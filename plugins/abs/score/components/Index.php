@@ -3,7 +3,6 @@
 use Abs\Score\Models\Category;
 use Abs\Score\Models\Product;
 use Cms\Classes\ComponentBase;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Str;
 
@@ -32,7 +31,7 @@ class Index extends ComponentBase
         }
         elseif ($this->page->id === 'category') {
             $this->page['category'] = Category::with('products')->where('slug', $this->param('category'))->first();
-            $this->page['products'] = $this->page['category']->products->where('is_published', 1);
+            $this->page['products'] = $this->page['category']->products->where('is_published', 1)->paginate(10);
 
             if (!$this->page['category']) {
                 return Response::make($this->controller->run('404'), 404);

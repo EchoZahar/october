@@ -1,0 +1,4 @@
+1.0.1: First version of ToDo
+1.0.2:
+  - 'Миграция таблицы notes'
+  - create_notes_table.php

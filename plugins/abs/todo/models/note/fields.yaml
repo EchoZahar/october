@@ -1,0 +1,15 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    title:
+        placeholder: Заголовок
+
+    description:
+        type: textarea
+        size: huge
+        placeholder: какое то короткое описание.
+
+    important:
+        type: hint

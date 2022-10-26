@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Note
+
+# Model Form Field configuration
+form: $/abs/todo/models/note/fields.yaml
+
+# Model Class name
+modelClass: Abs\ToDo\Models\Note
+
+# Default redirect location
+defaultRedirect: abs/todo/notes
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: abs/todo/notes/update/:id
+    redirectClose: abs/todo/notes
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: abs/todo/notes
+    redirectClose: abs/todo/notes
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

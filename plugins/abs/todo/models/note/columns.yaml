@@ -1,0 +1,22 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    title:
+        label: наименование
+        searchable: true
+
+    description:
+        label: описание
+        searchable: true
+
+    created_at:
+        label: дата
+        type: date
+        invisible: true
+
+    updated_at:
+        label: обновлено
+        type: date
+        invisible: true
