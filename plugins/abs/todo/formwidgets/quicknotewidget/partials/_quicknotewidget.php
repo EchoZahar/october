@@ -1,11 +1,11 @@
-<div class="report-widget">
+<div class="report-widget" id="notes_widget">
     <h3><?= $this->property('title') ?></h3>
     <?php if( $this->property('showList') ): ?>
 
         <ul class="list-nostyle">
             <?php if($notes->count() > 0): ?>
             <?php foreach( $notes as $note ): ?>
-                <li class="list-group-item">
+                <li class="list-group-item mt-2">
                     <form>
                     <div class="row">
                         <div class="col-sm-9">
@@ -23,18 +23,19 @@
                 </li>
             <?php endforeach ?>
             <?php else: ?>
-                <li class="text-primary">заметок не найдено</li>
+                <li class="text-primary">У вас нет ни одной заметки.</li>
             <?php endif; ?>
         </ul>
         <br/>
     <?php endif; ?>
 
-    <form></form>
-    <?= Form::open([
-        'url'       => Backend::url('abs/todo/notes/store'),
-        'method'    => 'POST'
-    ]);
-    ?>
+    <form>
+
+<!--    Form::open([-->
+<!--        'url'       => Backend::url('abs/todo/notes/store'),-->
+<!--        'method'    => 'POST'-->
+<!--    ]);-->
+
     <div class="form-group">
         <input class="form-control" type="text" name="title" placeholder="наименование заметки" required />
     </div>
@@ -46,10 +47,14 @@
 
     <div class="form-group text-end">
         <a href="<?= Backend::url('abs/todo/notes') ?>">на странице к заметкам</a>
-        <input type="submit" class="btn btn-primary" value="добавить" />
+<!--        <input type="submit" class="btn btn-primary" value="добавить" />-->
+        <button type="submit"  class="btn btn-primary"
+                data-request="<?= $this->getEventHandler('onCreate') ?>">добавить заметку</button>
     </div>
+    </form>
 
-    <?= Form::close(); ?>
+<!--    Form::close();-->
+
 </div>
 <script>
     $(document).ready(function() {
