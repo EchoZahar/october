@@ -8,6 +8,7 @@ use Backend\Facades\Backend;
 use Backend\Facades\BackendAuth;
 use BackendMenu;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
 use Input;
 use October\Rain\Support\Facades\Flash;
 
@@ -42,7 +43,7 @@ class Notes extends Controller
     {
         $note = new Note;
         $note->title = Input::get('title');
-        $note->description = Input::get('description', null);
+        $note->description = Str::limit(Input::get('description', null), 500, '...');
         $note->user_id = BackendAuth::getUser()->id;
 
         if ($note->save()) {

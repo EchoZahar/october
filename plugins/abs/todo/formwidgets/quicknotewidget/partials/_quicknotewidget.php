@@ -39,9 +39,10 @@
         <input class="form-control" type="text" name="title" placeholder="наименование заметки" required />
     </div>
 
-    <div class="form-group">
+    <div class="form-group ask-form">
         <textarea class="form-control" name="description" id="" rows="3" placeholder="какая то дополнительная информация."></textarea>
     </div>
+    <p id="ask-form-symbolCount">500 кол-во символов.</p>
 
     <div class="form-group text-end">
         <a href="<?= Backend::url('abs/todo/notes') ?>">на странице к заметкам</a>
@@ -50,4 +51,13 @@
 
     <?= Form::close(); ?>
 </div>
-
+<script>
+    $(document).ready(function() {
+        $(".ask-form textarea").val('');
+        $(".ask-form textarea").on("keyup", function() {
+            var text = $(".ask-form textarea").val();
+            var counter = $("#ask-form-symbolCount");
+            counter.text(500 - text.length);
+        });
+    })
+</script>
