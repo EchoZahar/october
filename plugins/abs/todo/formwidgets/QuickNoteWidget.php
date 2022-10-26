@@ -37,7 +37,6 @@ class QuickNoteWidget extends ReportWidgetBase
         if ($note) {
             $note->delete();
             Flash::success('Заметка: "' .$note->title. '" успешно удалена.');
-
         }
         else {
             Flash::error('Что то пошло не так. Обновите страницу и попробуйте еще раз !');
